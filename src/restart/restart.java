@@ -10,9 +10,21 @@ public class restart {
 	{
 		System.out.println("Restart Project");
 		restart res = new restart();
-		res.testFunction();
-		res.testEmpClass();
+		//res.testFunction();
+		//res.testEmpClass();
+		res.testGenric();
 		System.out.println("Restart Project End");
+	}
+	
+	public void testGenric()
+	{
+		GenEntry <String, Integer> entry1 = new GenEntry<>("SGO", 32);
+		GenEntry <Integer, Integer> entry2 = new GenEntry<>(50, 32);
+		
+		System.out.println("Generic = " + entry1.getKey() + " " + entry1.getValue());
+		System.out.println("Generic = " + entry1.getKey().getClass() + " " + entry1.getValue().getClass());
+		System.out.println("Generic = " + entry2.getKey() + " " + entry2.getValue());
+		System.out.println("Generic = " + entry2.getKey().getClass() + " " + entry2.getValue().getClass());
 	}
 	
 	private void testEmpClass()
@@ -20,7 +32,7 @@ public class restart {
 		Employee E1, E2, E3;
 		E1 = new Employee("E1", 25);
 		E2 = new Employee("E2", 35);
-		E3 = new Employee("E3", 45);
+		E3 = new Employee("E3", 35);
 		
 		E1.iStatic = 50;
 		System.out.println("iStatic Value : " + E1.iStatic);
@@ -35,7 +47,15 @@ public class restart {
 		System.out.println("Sal of " + E2.name + " = " + E2.getSal());
 		System.out.println("Sal of " + E3.name + " = " + E3.getSal());
 		
+		System.out.println("Comparing Employees = "+ E1.compare(E1, E2));
+		System.out.println("Comparing Employees = "+ E1.compare(E2, E3));
+		
+		Class <?> cl = E2.getClass();
+		System.out.println("Class Name = " + cl.getName());
+		
+		// Need to learn Lamda Expressions
 	}
+
 	
 	private void testFunction()
 	{
